@@ -3,7 +3,7 @@ This library enables ESP32 development boards to function as Bluetooth HID devic
 
 ## Contact Me
 - QQ群: 710985269
-- QQ:3560000009
+- QQ: 3560000009
 
 ## Installation
 - In the Arduino IDE go to "Sketch" -> "Include Library" -> "Add .ZIP Library..." and select the file you just downloaded.
