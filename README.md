@@ -6,7 +6,8 @@ This library enables ESP32 development boards to function as Bluetooth HID devic
 - You can now go to "File" -> "Examples" -> "ESP32 BLE HID" and select any of the examples to get started.
 ## Contact Me
 - QQ Group: 710985269
-- ![3588279a13c124d89a631746a960e43](https://github.com/user-attachments/assets/0523a785-c2f7-434a-a0ac-6a1e39081f2b)
+![微信图片_20240808234808 (1)](https://github.com/user-attachments/assets/425a34fb-b081-419f-97d2-a3e1b29361ae)
+
 
 
 ## Example
