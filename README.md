@@ -1,14 +1,13 @@
 # ESP32 BLE HID Keyboard, Abs Mouse, and Two-Way Communication Library
 This library enables ESP32 development boards to function as Bluetooth HID devices, supporting features such as keyboard input, absolute mouse control, and two-way communication.
 
+## Contact Me
+- QQ群: 710985269
+- QQ:3560000009
+
 ## Installation
 - In the Arduino IDE go to "Sketch" -> "Include Library" -> "Add .ZIP Library..." and select the file you just downloaded.
 - You can now go to "File" -> "Examples" -> "ESP32 BLE HID" and select any of the examples to get started.
-## Contact Me
-- QQ Group: 710985269
-![微信图片_20240808234808 (1)](https://github.com/user-attachments/assets/425a34fb-b081-419f-97d2-a3e1b29361ae)
-
-
 
 ## Example
 ```
