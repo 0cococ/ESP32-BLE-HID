@@ -62,33 +62,60 @@ static const uint8_t _hidReportDescriptor[] = {
   HIDINPUT(1),        0x00,          //   INPUT (Data,Array,Abs,No Wrap,Linear,Preferred State,No Null Position)
   END_COLLECTION(0),                 // END_COLLECTION
   // ------------------------------------------------- Media Keys
-  USAGE_PAGE(1),      0x0C,          // USAGE_PAGE (Consumer)
-  USAGE(1),           0x01,          // USAGE (Consumer Control)
-  COLLECTION(1),      0x01,          // COLLECTION (Application)
-  REPORT_ID(1),       MEDIA_KEYS_ID, //   REPORT_ID (3)
-  USAGE_PAGE(1),      0x0C,          //   USAGE_PAGE (Consumer)
-  LOGICAL_MINIMUM(1), 0x00,          //   LOGICAL_MINIMUM (0)
-  LOGICAL_MAXIMUM(1), 0x01,          //   LOGICAL_MAXIMUM (1)
-  REPORT_SIZE(1),     0x01,          //   REPORT_SIZE (1)
-  REPORT_COUNT(1),    0x10,          //   REPORT_COUNT (16)
-  USAGE(1),           0xB5,          //   USAGE (Scan Next Track)     ; bit 0: 1
-  USAGE(1),           0xB6,          //   USAGE (Scan Previous Track) ; bit 1: 2
-  USAGE(1),           0xB7,          //   USAGE (Stop)                ; bit 2: 4
-  USAGE(1),           0xCD,          //   USAGE (Play/Pause)          ; bit 3: 8
-  USAGE(1),           0xE2,          //   USAGE (Mute)                ; bit 4: 16
-  USAGE(1),           0xE9,          //   USAGE (Volume Increment)    ; bit 5: 32
-  USAGE(1),           0xEA,          //   USAGE (Volume Decrement)    ; bit 6: 64
-  USAGE(2),           0x23, 0x02,    //   Usage (WWW Home)            ; bit 7: 128
-  USAGE(2),           0x94, 0x01,    //   Usage (My Computer) ; bit 0: 1
-  USAGE(2),           0x92, 0x01,    //   Usage (Calculator)  ; bit 1: 2
-  USAGE(2),           0x2A, 0x02,    //   Usage (WWW fav)     ; bit 2: 4
-  USAGE(2),           0x21, 0x02,    //   Usage (WWW search)  ; bit 3: 8
-  USAGE(2),           0x26, 0x02,    //   Usage (WWW stop)    ; bit 4: 16
-  USAGE(2),           0x24, 0x02,    //   Usage (WWW back)    ; bit 5: 32
-  USAGE(2),           0x83, 0x01,    //   Usage (Media sel)   ; bit 6: 64
-  USAGE(2),           0x8A, 0x01,    //   Usage (Mail)        ; bit 7: 128
-  HIDINPUT(1),        0x02,          //   INPUT (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position)
-  END_COLLECTION(0),                 // END_COLLECTION
+  0x05, 0x0C,          //     USAGE_PAGE (Consumer)
+  0x09, 0x01,          //     USAGE (Consumer Control)
+  0xa1, 0x01,          //     COLLECTION (Application)
+  0x85, MEDIA_KEYS_ID, //   REPORT_ID (3)
+  0x05, 0x0C,          //   USAGE_PAGE (Consumer)
+  0x15, 0x00,          //   LOGICAL_MINIMUM (0)
+  0x25, 0x01,          //   LOGICAL_MAXIMUM (1)
+  0x75, 0x01,          //   REPORT_SIZE (1)
+  0x95, 0x10,          //   REPORT_COUNT (16)
+  0x09, 0x40,          //   USAGE (CONSUMER_MENU)        !INVALID      ; bit 0: 1          
+  0x09, 0x34,          //   USAGE (CONSUMER_POWER)         !INVALID    ; bit 1: 2  
+  0x09, 0xE2,          //   USAGE (Mute)                               ; bit 2: 4 
+  0x09, 0xE9,          //   USAGE (Volume Increment)                 ; bit 3: 8 
+  0x09, 0xEA,          //   USAGE (Volume Decrement)                 ; bit 4: 16
+  0x0a, 0x32, 0x02,    //   USAGE (ANDRIOD_RECENT_5)     !INVALID      ; bit 5: 32
+  0x0a, 0x25, 0x02,    //   USAGE (ANDRIOD_FORWARD)      !INVALID    ; bit 6: 64
+  0x0a, 0x23, 0x02,    //   Usage (ANDRIOD_HOME)                    ; bit 7: 128
+  0x0a, 0x24, 0x02,    //   Usage (ANDRIOD_BACK)                     ; bit 0: 1
+  0x0a, 0x8F, 0x01,    //   Usage (ANDRIOD_RECENT)       !INVALID     ; bit 1: 2
+  0x0a, 0x9E, 0x01,    //   Usage (ANDRIOD_POWER)                     ; bit 2: 4
+  0x0a, 0x21, 0x02,    //   Usage (ANDRIOD_SEARCH)                   ; bit 3: 8
+  0x0a, 0x9F, 0x01,    //   Usage (ANDRIOD_RECENT_1)     !INVALID       ; bit 4: 16
+  0x0a, 0xA1, 0x01,    //   Usage (ANDRIOD_RECENT_2)     !INVALID       ; bit 5: 32
+  0x0a, 0xA2, 0x01,    //   Usage (ANDRIOD_RECENT_3)     !INVALID      ; bit 6: 64
+  0x0a, 0xA3, 0x01,    //   Usage (ANDRIOD_RECENT_4)     !INVALID       ; bit 7: 128
+  0x81, 0x02,          //   INPUT (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position)
+  0xc0,                //     END_COLLECTION
+  // USAGE_PAGE(1),      0x0C,          // USAGE_PAGE (Consumer)
+  // USAGE(1),           0x01,          // USAGE (Consumer Control)
+  // COLLECTION(1),      0x01,          // COLLECTION (Application)
+  // REPORT_ID(1),       MEDIA_KEYS_ID, //   REPORT_ID (3)
+  // USAGE_PAGE(1),      0x0C,          //   USAGE_PAGE (Consumer)
+  // LOGICAL_MINIMUM(1), 0x00,          //   LOGICAL_MINIMUM (0)
+  // LOGICAL_MAXIMUM(1), 0x01,          //   LOGICAL_MAXIMUM (1)
+  // REPORT_SIZE(1),     0x01,          //   REPORT_SIZE (1)
+  // REPORT_COUNT(1),    0x10,          //   REPORT_COUNT (16)
+  // USAGE(1),           0xB5,          //   USAGE (Scan Next Track)     ; bit 0: 1
+  // USAGE(1),           0xB6,          //   USAGE (Scan Previous Track) ; bit 1: 2
+  // USAGE(1),           0xB7,          //   USAGE (Stop)                ; bit 2: 4
+  // USAGE(1),           0xCD,          //   USAGE (Play/Pause)          ; bit 3: 8
+  // USAGE(1),           0xE2,          //   USAGE (Mute)                ; bit 4: 16
+  // USAGE(1),           0xE9,          //   USAGE (Volume Increment)    ; bit 5: 32
+  // USAGE(1),           0xEA,          //   USAGE (Volume Decrement)    ; bit 6: 64
+  // USAGE(2),           0x23, 0x02,    //   Usage (WWW Home)            ; bit 7: 128
+  // USAGE(2),           0x94, 0x01,    //   Usage (My Computer) ; bit 0: 1
+  // USAGE(2),           0x92, 0x01,    //   Usage (Calculator)  ; bit 1: 2
+  // USAGE(2),           0x2A, 0x02,    //   Usage (WWW fav)     ; bit 2: 4
+  // USAGE(2),           0x21, 0x02,    //   Usage (WWW search)  ; bit 3: 8
+  // USAGE(2),           0x26, 0x02,    //   Usage (WWW stop)    ; bit 4: 16
+  // USAGE(2),           0x24, 0x02,    //   Usage (WWW back)    ; bit 5: 32
+  // USAGE(2),           0x83, 0x01,    //   Usage (Media sel)   ; bit 6: 64
+  // USAGE(2),           0x8A, 0x01,    //   Usage (Mail)        ; bit 7: 128
+  // HIDINPUT(1),        0x02,          //   INPUT (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position)
+  // END_COLLECTION(0),                 // END_COLLECTION
 
   // ------------------------------------------------- Mouse
 //  USAGE_PAGE(1),       0x01, // USAGE_PAGE (Generic Desktop)
