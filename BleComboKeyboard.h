@@ -59,24 +59,42 @@ const uint8_t KEY_F22 = 0xF9;
 const uint8_t KEY_F23 = 0xFA;
 const uint8_t KEY_F24 = 0xFB;
 
-typedef uint8_t MediaKeyReport[2];
+// typedef uint8_t MediaKeyReport[2];
+// const MediaKeyReport KEY_MEDIA_NEXT_TRACK = {1, 0};
+// const MediaKeyReport KEY_MEDIA_PREVIOUS_TRACK = {2, 0};
+// const MediaKeyReport KEY_MEDIA_STOP = {4, 0};
+// const MediaKeyReport KEY_MEDIA_PLAY_PAUSE = {8, 0};
+// const MediaKeyReport KEY_MEDIA_MUTE = {16, 0};
+// const MediaKeyReport KEY_MEDIA_VOLUME_UP = {32, 0};
+// const MediaKeyReport KEY_MEDIA_VOLUME_DOWN = {64, 0};
+// const MediaKeyReport KEY_MEDIA_WWW_HOME = {128, 0};
+// const MediaKeyReport KEY_MEDIA_LOCAL_MACHINE_BROWSER = {0, 1}; // Opens "My Computer" on Windows
+// const MediaKeyReport KEY_MEDIA_CALCULATOR = {0, 2};
+// const MediaKeyReport KEY_MEDIA_WWW_BOOKMARKS = {0, 4};
+// const MediaKeyReport KEY_MEDIA_WWW_SEARCH = {0, 8};
+// const MediaKeyReport KEY_MEDIA_WWW_STOP = {0, 16};
+// const MediaKeyReport KEY_MEDIA_WWW_BACK = {0, 32};
+// const MediaKeyReport KEY_MEDIA_CONSUMER_CONTROL_CONFIGURATION = {0, 64}; // Media Selection
+// const MediaKeyReport KEY_MEDIA_EMAIL_READER = {0, 128};
 
-const MediaKeyReport KEY_MEDIA_NEXT_TRACK = {1, 0};
-const MediaKeyReport KEY_MEDIA_PREVIOUS_TRACK = {2, 0};
-const MediaKeyReport KEY_MEDIA_STOP = {4, 0};
-const MediaKeyReport KEY_MEDIA_PLAY_PAUSE = {8, 0};
-const MediaKeyReport KEY_MEDIA_MUTE = {16, 0};
-const MediaKeyReport KEY_MEDIA_VOLUME_UP = {32, 0};
-const MediaKeyReport KEY_MEDIA_VOLUME_DOWN = {64, 0};
-const MediaKeyReport KEY_MEDIA_WWW_HOME = {128, 0};
-const MediaKeyReport KEY_MEDIA_LOCAL_MACHINE_BROWSER = {0, 1}; // Opens "My Computer" on Windows
-const MediaKeyReport KEY_MEDIA_CALCULATOR = {0, 2};
-const MediaKeyReport KEY_MEDIA_WWW_BOOKMARKS = {0, 4};
-const MediaKeyReport KEY_MEDIA_WWW_SEARCH = {0, 8};
-const MediaKeyReport KEY_MEDIA_WWW_STOP = {0, 16};
-const MediaKeyReport KEY_MEDIA_WWW_BACK = {0, 32};
-const MediaKeyReport KEY_MEDIA_CONSUMER_CONTROL_CONFIGURATION = {0, 64}; // Media Selection
-const MediaKeyReport KEY_MEDIA_EMAIL_READER = {0, 128};
+
+typedef uint8_t MediaKeyReport[2];
+const MediaKeyReport KEY_CONSUMER_MENU = {1, 0};   // INVALID 
+const MediaKeyReport KEY_CONSUMER_POWER = {2, 0};// INVALID 
+const MediaKeyReport KEY_MEDIA_MUTE = {4, 0};
+const MediaKeyReport KEY_MEDIA_VOLUME_UP = {8, 0};
+const MediaKeyReport KEY_MEDIA_VOLUME_DOWN = {16, 0};
+const MediaKeyReport KEY_ANDRIOD_RECENT_5 = {32, 0};// INVALID 
+const MediaKeyReport KEY_ANDRIOD_FORWARD = {64, 0};// INVALID 
+const MediaKeyReport KEY_ANDRIOD_HOME = {128, 0};
+const MediaKeyReport KEY_ANDRIOD_BACK = {0, 1}; 
+const MediaKeyReport KEY_ANDRIOD_RECENT = {0, 2};// INVALID 
+const MediaKeyReport KEY_ANDRIOD_POWER = {0, 4};
+const MediaKeyReport KEY_ANDRIOD_SEARCH = {0, 8};
+const MediaKeyReport KEY_ANDRIOD_RECENT_1 = {0, 16};// INVALID 
+const MediaKeyReport KEY_ANDRIOD_RECENT_2 = {0, 32};// INVALID 
+const MediaKeyReport KEY_ANDRIOD_RECENT_3 = {0, 64}; // INVALID 
+const MediaKeyReport KEY_ANDRIOD_RECENT_4 = {0, 128};// INVALID
 
 
 //  Low level key report: up to 6 keys and shift, ctrl etc at once
