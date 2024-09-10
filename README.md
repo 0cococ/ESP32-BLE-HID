@@ -38,6 +38,7 @@ void loop() {
 
 ## Credits
 This project is heavily based on their work:
+- [zan0x12](https://github.com/zan0x12)
 - [ESP32-BLE-Mouse](https://github.com/T-vK/ESP32-BLE-Mouse)
 - [ESP32-BLE-Keyboard](https://github.com/T-vK/ESP32-BLE-Keyboard)
 - [ESP32-BLE-Abs-Mouse](https://github.com/sobrinho/ESP32-BLE-Abs-Mouse)
