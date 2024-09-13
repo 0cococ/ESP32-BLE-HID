@@ -17,6 +17,7 @@ public:
   BLECharacteristic* inputKeyboard;
   BLECharacteristic* outputKeyboard;
   BLECharacteristic* inputMouse;
+  BLECharacteristic* inputRELMouse;
 };
 
 #endif // CONFIG_BT_ENABLED
