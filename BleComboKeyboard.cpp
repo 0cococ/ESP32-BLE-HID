@@ -134,7 +134,7 @@ static const uint8_t _hidReportDescriptor[] = {
   0x81, 0x02,                    /*        Input (Data,Var,Abs) */
   0xc0,                          /*     END_COLLECTION */
   0xc0,                          /*   END_COLLECTION */
-  0xc0                           /* END_COLLECTION */
+  0xc0,                           /* END_COLLECTION */
 
   // With this declaration a data packet must be sent as:
   // byte 1   -> "touch" state          (bit 0 = pen up/down, bit 1 = In Range)
