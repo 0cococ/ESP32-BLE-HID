@@ -26,6 +26,8 @@
 #define KEYBOARD_ID 0x01
 #define MEDIA_KEYS_ID 0x02
 #define MOUSE_ID 0x03
+#define REL_MOUSE_ID 0x04
+
 static const uint8_t _hidReportDescriptor[] = {
   USAGE_PAGE(1),      0x01,          // USAGE_PAGE (Generic Desktop Ctrls)
   USAGE(1),           0x06,          // USAGE (Keyboard)
@@ -90,46 +92,7 @@ static const uint8_t _hidReportDescriptor[] = {
   HIDINPUT(1),        0x02,          //   INPUT (Data,Var,Abs,No Wrap,Linear,Preferred State,No Null Position)
   END_COLLECTION(0),                 // END_COLLECTION
 
-  // ------------------------------------------------- Mouse
-//  USAGE_PAGE(1),       0x01, // USAGE_PAGE (Generic Desktop)
-//  USAGE(1),            0x02, // USAGE (Mouse)
-//  COLLECTION(1),       0x01, // COLLECTION (Application)
-//  USAGE(1),            0x01, //   USAGE (Pointer)
-//  COLLECTION(1),       0x00, //   COLLECTION (Physical)
-//  REPORT_ID(1),        MOUSE_ID, //     REPORT_ID (1)
-//  // ------------------------------------------------- Buttons (Left, Right, Middle, Back, Forward)
-//  USAGE_PAGE(1),       0x09, //     USAGE_PAGE (Button)
-//  USAGE_MINIMUM(1),    0x01, //     USAGE_MINIMUM (Button 1)
-//  USAGE_MAXIMUM(1),    0x05, //     USAGE_MAXIMUM (Button 5)
-//  LOGICAL_MINIMUM(1),  0x00, //     LOGICAL_MINIMUM (0)
-//  LOGICAL_MAXIMUM(1),  0x01, //     LOGICAL_MAXIMUM (1)
-//  REPORT_SIZE(1),      0x01, //     REPORT_SIZE (1)
-//  REPORT_COUNT(1),     0x05, //     REPORT_COUNT (5)
-//  HIDINPUT(1),         0x02, //     INPUT (Data, Variable, Absolute) ;5 button bits
-//  // ------------------------------------------------- Padding
-//  REPORT_SIZE(1),      0x03, //     REPORT_SIZE (3)
-//  REPORT_COUNT(1),     0x01, //     REPORT_COUNT (1)
-//  HIDINPUT(1),         0x03, //     INPUT (Constant, Variable, Absolute) ;3 bit padding
-//  // ------------------------------------------------- X/Y position, Wheel
-//  USAGE_PAGE(1),       0x01, //     USAGE_PAGE (Generic Desktop)
-//  USAGE(1),            0x30, //     USAGE (X)
-//  USAGE(1),            0x31, //     USAGE (Y)
-//  USAGE(1),            0x38, //     USAGE (Wheel)
-//  LOGICAL_MINIMUM(1),  0x81, //     LOGICAL_MINIMUM (-127)
-//  LOGICAL_MAXIMUM(1),  0x7f, //     LOGICAL_MAXIMUM (127)
-//  REPORT_SIZE(1),      0x08, //     REPORT_SIZE (8)
-//  REPORT_COUNT(1),     0x03, //     REPORT_COUNT (3)
-//  HIDINPUT(1),         0x06, //     INPUT (Data, Variable, Relative) ;3 bytes (X,Y,Wheel)
-//  // ------------------------------------------------- Horizontal wheel
-//  USAGE_PAGE(1),       0x0c, //     USAGE PAGE (Consumer Devices)
-//  USAGE(2),      0x38, 0x02, //     USAGE (AC Pan)
-//  LOGICAL_MINIMUM(1),  0x81, //     LOGICAL_MINIMUM (-127)
-//  LOGICAL_MAXIMUM(1),  0x7f, //     LOGICAL_MAXIMUM (127)
-//  REPORT_SIZE(1),      0x08, //     REPORT_SIZE (8)
-//  REPORT_COUNT(1),     0x01, //     REPORT_COUNT (1)
-//  HIDINPUT(1),         0x06, //     INPUT (Data, Var, Rel)
-//  END_COLLECTION(0),         //   END_COLLECTION
-//  END_COLLECTION(0)          // END_COLLECTION
+  // ------------------------------------------------- ABS Mouse
   0x05, 0x0d,                    /* USAGE_PAGE (Digitizer) */
   0x09, 0x04,                    /* USAGE (Touch Screen) */
   0xa1, 0x01,                    /* COLLECTION (Application) */
@@ -171,13 +134,52 @@ static const uint8_t _hidReportDescriptor[] = {
   0x81, 0x02,                    /*        Input (Data,Var,Abs) */
   0xc0,                          /*     END_COLLECTION */
   0xc0,                          /*   END_COLLECTION */
-  0xc0                           /* END_COLLECTION */
+  0xc0,                           /* END_COLLECTION */
 
   // With this declaration a data packet must be sent as:
   // byte 1   -> "touch" state          (bit 0 = pen up/down, bit 1 = In Range)
   // byte 2,3 -> absolute X coordinate  (0...10000)
   // byte 4,5 -> absolute Y coordinate  (0...10000)
-
+//----------------REL Mouse
+ USAGE_PAGE(1),       0x01, // USAGE_PAGE (Generic Desktop)
+ USAGE(1),            0x02, // USAGE (Mouse)
+ COLLECTION(1),       0x01, // COLLECTION (Application)
+ USAGE(1),            0x01, //   USAGE (Pointer)
+ COLLECTION(1),       0x00, //   COLLECTION (Physical)
+ REPORT_ID(1),        REL_MOUSE_ID, //     REPORT_ID (4)
+ // ------------------------------------------------- Buttons (Left, Right, Middle, Back, Forward)
+ USAGE_PAGE(1),       0x09, //     USAGE_PAGE (Button)
+ USAGE_MINIMUM(1),    0x01, //     USAGE_MINIMUM (Button 1)
+ USAGE_MAXIMUM(1),    0x05, //     USAGE_MAXIMUM (Button 5)
+ LOGICAL_MINIMUM(1),  0x00, //     LOGICAL_MINIMUM (0)
+ LOGICAL_MAXIMUM(1),  0x01, //     LOGICAL_MAXIMUM (1)
+ REPORT_SIZE(1),      0x01, //     REPORT_SIZE (1)
+ REPORT_COUNT(1),     0x05, //     REPORT_COUNT (5)
+ HIDINPUT(1),         0x02, //     INPUT (Data, Variable, Absolute) ;5 button bits
+ // ------------------------------------------------- Padding
+ REPORT_SIZE(1),      0x03, //     REPORT_SIZE (3)
+ REPORT_COUNT(1),     0x01, //     REPORT_COUNT (1)
+ HIDINPUT(1),         0x03, //     INPUT (Constant, Variable, Absolute) ;3 bit padding
+ // ------------------------------------------------- X/Y position, Wheel
+ USAGE_PAGE(1),       0x01, //     USAGE_PAGE (Generic Desktop)
+ USAGE(1),            0x30, //     USAGE (X)
+ USAGE(1),            0x31, //     USAGE (Y)
+ USAGE(1),            0x38, //     USAGE (Wheel)
+ LOGICAL_MINIMUM(1),  0x81, //     LOGICAL_MINIMUM (-127)
+ LOGICAL_MAXIMUM(1),  0x7f, //     LOGICAL_MAXIMUM (127)
+ REPORT_SIZE(1),      0x08, //     REPORT_SIZE (8)
+ REPORT_COUNT(1),     0x03, //     REPORT_COUNT (3)
+ HIDINPUT(1),         0x06, //     INPUT (Data, Variable, Relative) ;3 bytes (X,Y,Wheel)
+ // ------------------------------------------------- Horizontal wheel
+ USAGE_PAGE(1),       0x0c, //     USAGE PAGE (Consumer Devices)
+ USAGE(2),      0x38, 0x02, //     USAGE (AC Pan)
+ LOGICAL_MINIMUM(1),  0x81, //     LOGICAL_MINIMUM (-127)
+ LOGICAL_MAXIMUM(1),  0x7f, //     LOGICAL_MAXIMUM (127)
+ REPORT_SIZE(1),      0x08, //     REPORT_SIZE (8)
+ REPORT_COUNT(1),     0x01, //     REPORT_COUNT (1)
+ HIDINPUT(1),         0x06, //     INPUT (Data, Var, Rel)
+ END_COLLECTION(0),         //   END_COLLECTION
+ END_COLLECTION(0)          // END_COLLECTION
 
 };
 
@@ -231,6 +233,9 @@ void BleComboKeyboard::taskServer(void* pvParameter) {
 
   bleKeyboardInstance->inputMouse = bleKeyboardInstance->hid->inputReport(MOUSE_ID); // <-- input REPORTID from report map
   bleKeyboardInstance->connectionStatus->inputMouse = bleKeyboardInstance->inputMouse;
+	
+  bleKeyboardInstance->inputRELMouse = bleKeyboardInstance->hid->inputReport(REL_MOUSE_ID); // <-- input relmouse REPORTID from report map
+  bleKeyboardInstance->connectionStatus->inputRELMouse = bleKeyboardInstance->inputRELMouse;
 
   bleKeyboardInstance->outputKeyboard->setCallbacks(new KeyboardOutputCallbacks());
 

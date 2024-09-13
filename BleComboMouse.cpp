@@ -21,8 +21,8 @@ void BleComboMouse::move(signed char x, signed char y, signed char wheel, signed
     m[2] = y;
     m[3] = wheel;
     m[4] = hWheel;
-    _keyboard->inputMouse->setValue(m, 5);
-    _keyboard->inputMouse->notify();
+    _keyboard->inputRELMouse->setValue(m, 5);
+    _keyboard->inputRELMouse->notify();
   }
 }
 
