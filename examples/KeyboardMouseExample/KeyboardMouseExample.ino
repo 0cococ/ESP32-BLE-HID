@@ -15,7 +15,12 @@ void setup() {
 }
 void loop() {
   if(Keyboard.isConnected()) {
-   mouse.click();
+   mouse.move(100, 100, 0, 0);
+   delay(2000);
+   mouse.click(8);  // 1 2 4 8 16
+   delay(2000);
+   mouse.send(3, 100, 100);
   }
+  
   delay(2000);
 }
